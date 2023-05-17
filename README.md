@@ -31,7 +31,7 @@
 # 📖 Book Store <a name="about-project"></a>
 
 
-**Math Magician** is a webapp built with React that contain books with authors and their categories
+**books Store** is a webapp built with React that contain books with authors and their categories
 
 ## 🛠 Built With <a name="built-with"></a>
 

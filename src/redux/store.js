@@ -1,9 +1,9 @@
-import { createStore, combineReducers } from '@reduxjs/toolkit';
+import { createStore, configureStore } from '@reduxjs/toolkit';
 
 import booksSlice from './books/booksSlice';
 import categoriesSlice from './categories/categoriesSlice';
 
-const rootReducer = combineReducers({
+const rootReducer = configureStore({
   books: booksSlice.reducer,
   categories: categoriesSlice.reducer,
 });
