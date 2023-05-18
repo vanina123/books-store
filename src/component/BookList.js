@@ -1,18 +1,24 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 
-const BookList = ({ books, onDelete }) => (
-  <div className="book-list">
-    {books.map((book) => (
-      <Book
-        key={book.id}
-        title={book.title}
-        category={book.category}
-        author={book.author}
-        onDelete={() => onDelete(book.id)}
-      />
-    ))}
-  </div>
-);
+const BookList = () => {
+  const { books } = useSelector((state) => state.books);
+
+  if (!Array.isArray(books)) {
+    return null;
+  }
+  return (
+    <div className="book-list">
+      {books.map((book) => (
+        <Book
+          key={book.item_id}
+          book={book}
+        />
+      ))}
+    </div>
+
+  );
+};
 
 export default BookList;
