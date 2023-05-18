@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
 
 const BookForm = ({ onAdd }) => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [author, setAuthor] = useState('');
+  const disptach = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && category && author) {
-      const newBook = {
-        id: Math.random().toString(),
-        title,
-        category,
-        author,
-      };
-      onAdd(newBook);
+      disptach(
+        addBook({
+          item_id: Math.random().toString(),
+          title,
+          category,
+          author,
+        }),
+      );
+      onAdd(addBook);
       setTitle('');
       setCategory('');
       setAuthor('');
