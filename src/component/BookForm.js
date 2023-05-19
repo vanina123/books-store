@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, addNewBook } from '../redux/books/booksSlice';
 
 const BookForm = ({ onAdd }) => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [author, setAuthor] = useState('');
+  const [error, setError] = useState('');
   const disptach = useDispatch();
 
   const handleSubmit = (e) => {
@@ -19,10 +20,20 @@ const BookForm = ({ onAdd }) => {
           author,
         }),
       );
-      onAdd(addBook);
+      disptach(
+        addNewBook({
+          item_id: Math.random().toString(),
+          title,
+          category,
+          author,
+        }),
+      );
+      onAdd(addNewBook);
       setTitle('');
       setCategory('');
       setAuthor('');
+    } else {
+      setError('input the missing fields');
     }
   };
 
@@ -40,9 +51,10 @@ const BookForm = ({ onAdd }) => {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
+          <option value="options">select Below</option>
           <option value="Action">Action</option>
-          <option value="Science Fiction">Science Fiction</option>
-          <option value="Economy">Economy</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Nonficion">Non Fiction</option>
         </select>
         <input
           type="text"
@@ -51,6 +63,7 @@ const BookForm = ({ onAdd }) => {
           onChange={(e) => setAuthor(e.target.value)}
         />
         <button type="submit">ADD BOOK</button>
+        <span>{error}</span>
       </form>
     </div>
   );

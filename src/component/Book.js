@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { deleteBook, deleteOldBook } from '../redux/books/booksSlice';
 
 function Book({ book }) {
   const disptach = useDispatch();
+
   const handleDelete = (item_id) => {
-    disptach(removeBook(item_id));
+    disptach(deleteBook(item_id));
+    disptach(deleteOldBook(item_id));
   };
+
   return (
     <div className="book">
       <h2>{book.title}</h2>
