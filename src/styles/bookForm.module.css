@@ -1,3 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.divide {
+  height: 0.125rem;
+  background-color: #e8e8e8;
+  width: 91%;
+  margin: 3%;
+}
+
 form {
   display: flex;
   gap: 30px;
@@ -35,4 +47,8 @@ input {
   font-size: 0.813rem;
   font-weight: 700;
   font-family: "Roboto Slab", serif;
+}
+
+.cont {
+  padding: 4px;
 }

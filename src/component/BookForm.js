@@ -40,6 +40,7 @@ const BookForm = ({ onAdd }) => {
 
   return (
     <div>
+      <div className={styles.divide} />
       <h1 className={styles.head}>ADD NEW BOOK</h1>
       <form onSubmit={handleSubmit}>
         <input

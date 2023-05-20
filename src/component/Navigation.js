@@ -8,10 +8,10 @@ const Navigation = () => (
     <h1 className={styles.head}>BookStore CMS</h1>
     <ul>
       <li>
-        <Link className={styles.menu} to="/Categories">Categories</Link>
+        <Link className={styles.menu1} to="/">Books</Link>
       </li>
       <li>
-        <Link className={styles.menu} to="/">Books</Link>
+        <Link className={styles.menu} to="/Categories">Categories</Link>
       </li>
       <button className={styles.pic} type="button">
         <FaUser height={20} width={40} color="#0290ff" />
