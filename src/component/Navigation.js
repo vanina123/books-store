@@ -1,15 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
+import styles from '../styles/navigation.module.css';
 
 const Navigation = () => (
-  <nav>
+  <nav className={styles.navbar}>
+    <h1 className={styles.head}>BookStore CMS</h1>
     <ul>
       <li>
-        <Link to="/Categories">Categories</Link>
+        <Link className={styles.menu1} to="/">Books</Link>
       </li>
       <li>
-        <Link to="/">Books</Link>
+        <Link className={styles.menu} to="/Categories">Categories</Link>
       </li>
+      <button className={styles.pic} type="button">
+        <FaUser height={20} width={40} color="#0290ff" />
+      </button>
     </ul>
   </nav>
 );
